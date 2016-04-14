@@ -44,4 +44,10 @@ elseif($id!=""){
 	mysqli_stmt_bind_execute($stmt);
 }
 
+	mysqli_stmt_bind_result($symt,$url);
+
+	mysqli_stmt_fetch($stmt);
+
+	header("Location:" .$url);
+
 ?>
