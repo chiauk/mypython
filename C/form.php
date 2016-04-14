@@ -25,4 +25,23 @@ if(isset($_POST['longUrl']))
 else
 	$longUrl="";
 
+if($longUrl!=""){
+	$stmt=mysqli_prepare($conn,"INSERT $myTable (url) VALUES (?)");
+
+	mysqli_stmt_bind_param($stmt,'s',$longUrl);
+	mysqli_stmt_bind_execute($stmt);
+
+	$id=mysqli_insert_id($conn);
+
+	$shortUrl="http://$myHost$myUri?id=$id";
+}
+
+elseif($id!=""){
+	$stmt=mysqli_prepare($conn,"SELECT url FROM $myTable WHERE $id=?");
+
+	mysqli_stmt_bind_param($stmt,'d','$id');
+
+	mysqli_stmt_bind_execute($stmt);
+}
+
 ?>
