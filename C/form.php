@@ -20,4 +20,9 @@ $myHost='$_SERVER['HTTP_HOST']';
 $myUri=$_SERVER['PHP_SELF'];
 $shortUrl="";
 
+if(isset($_POST['longUrl']))
+	$longUrl=$_POST['longUrl'];
+else
+	$longUrl="";
+
 ?>
